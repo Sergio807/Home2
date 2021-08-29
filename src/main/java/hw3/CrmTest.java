@@ -19,6 +19,10 @@ public class CrmTest {
         driver.get("https://crm.geekbrains.space/expense-request/");
         driver.findElement(By.xpath("//a[@title='Создать заявку на расход']")).click();
         driver.findElement(By.name("crm_expense_request[description]")).sendKeys("test");
+        //вот эта строка снизу вызывает проблемы мешающие реализовать дальнейшие действия
+        //'Select()' in 'org.apache.tapestry5.corelib.components.Select' cannot be applied to
+        // '(org.openqa.selenium.WebElement)'
+        //Вызывает вот такую ошибку
         Select businessUnitSelect = new Select(driver.findElement(By.name("crm_expense_request[businessUnit]")));
 
         //name="crm_expense_request[businessUnit]"
